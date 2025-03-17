@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  web:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    environment:
+      - TZ=Asia/Shanghai
+    networks:
+      - eladmin-net
+
+  # 后端服务示例（需根据实际配置调整）
+  # backend:
+  #   image: eladmin/backend:latest
+  #   ports:
+  #     - "8000:8000"
+  #   networks:
+  #     - eladmin-net
+
+networks:
+  eladmin-net:
+    driver: bridge
